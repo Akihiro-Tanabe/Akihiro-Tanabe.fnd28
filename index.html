@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <title>お作法ページメーカー</title>
+  <link rel="stylesheet" href="maker.css">
+  <script type="text/javascript" src="modules/lodash.min.js"></script>
+  <script type="text/javascript" src="modules/test-boilerplate.js"></script>
+</head>
+
+<body>
+  <h1>お作法ページメーカー</h1>
+  <h2 id="subtitle">前提条件を入力してください！</h2>
+  <div class="center">
+    <input id="input_sheet" type="file"><br><br>
+    <button type="button" onclick="inputSheet()">ファイルから入力</button>
+  </div>
+  <div id="inputArea">
+    <table id="inputTable">
+      <tr>
+        <td>
+          <h3>(1)前提条件</h3>
+        </td>
+        <td>
+          <h3>(2)専用リソーセス</h3>
+        </td>
+        <td>
+          <h3>(3)原価・採算状況</h3>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <ol>
+            <label class="costPeriod" for="costPeriod">原価時期　　：</label>
+            <input type="month" id="costPeriod" placeholder="年/月-年/月" /><br>
+            <label for="lineOff">ラインオフ　：</label>
+            <input type="month" id="lineOff" placeholder="年/月" /><br>
+            <label for="modelLife">モデルライフ：</label>
+            <input type="number" id="modelLife" size="10">
+            <label for="modelLife">ヶ月</label><br>
+            <label for="planVolume">企画台数　　：</label>
+            <input type="text" id="planVolume" />
+            <label for="planVolume">台</label><br>
+            <label for="exchangeRate">原企レート　：</label>
+            <input type="text" id="exchangeRate" />
+            <label for="exchangeRate">円/EUR</label><br>
+            <label for="productionPlant">生産場所　　：</label>
+            <input type="text" id="productionPlant" placeholder="TMC" /><br>
+          </ol>
+        </td>
+        <td>
+          <ol>
+            <label class="unique" for="unique">専用　　：</label>
+            <input type="text" id="unique" />
+            <label for="uique">億円</label><br>
+            <label for="common">汎用　　：</label>
+            <input type="text" id="common" />
+            <label for="common">億円</label><br>
+            <label for="plant">工場　　：</label>
+            <input type="text" id="plant">
+            <label for="plant">億円</label><br>
+            <label for="unit">ユニット：</label>
+            <input type="text" id="unit" />
+            <label for="unit">億円</label><br>
+            <label for="protoCost">試作費　：</label>
+            <input type="text" id="protoCost" />
+            <label for="protoCost">億円</label><br>
+            <label for="laborCost">労務費　：</label>
+            <input type="text" id="laborCost" />
+            <label for="laborCost">億円</label><br>
+            <label for="outCost">委託費　：</label>
+            <input type="text" id="outCost" />
+            <label for="outCost">億円</label><br>
+            <label for="outCost">試作車　：</label>
+            <input type="text" id="protoCarNums" />
+            <label for="outCost">台</label><br>
+          </ol>
+        </td>
+        <td>
+          <ol>
+            <label>製造原価：</label>
+            <input type="text" id="prodCost" />
+            <label>千円</label><br>
+            <label>総原価　：</label>
+            <input type="text" id="totalCost" />
+            <label for="common">千円</label><br>
+            <label>仕切価格：</label>
+            <input type="text" id="partitionCost">
+            <label>千円</label><br>
+            <label>合算利益：</label>
+            <input type="text" id="profit" />
+            <label>千円</label><br><br>
+            <label>シリーズ合算利益：</label>
+            <input type="text" id="seriesProfit" />
+            <label>千円</label><br>
+          </ol>
+        </td>
+      </tr>
+    </table>
+    <div id="button">
+      <button onclick="createTable()">お作法ページを生成</button><br><br>
+    </div>
+  </div>
+  <div id="osahouPage">
+    <p id="title">
+      <img id="tcLogo" src="C:\Users\1469741\Desktop\dig-foundations\foundations\卒業制作\TCロゴ.jpg" alt="TCロゴ">
+      原価企画
+    </p>
+    <div id="main">
+      <table id="mainTable">
+        <tr>
+          <td class="mainTableWidth">
+            <h3>(1)前提条件</h3>
+          </td>
+          <td>
+            <h3>(2)専用リソーセス</h3>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <ul>
+              <li id="toCostPeriod" class="textWidth">原価時期　　：</li>
+              <li id="toLineOff">ラインオフ　：</li>
+              <li id="toModelLife">モデルライフ：</li>
+              <li id="toPlanVolume">企画台数　　：</li>
+              <li id="toExchangeRate">原企レート　：</li>
+              <li id="toProductionPlant">生産場所　　：</li>
+            </ul>
+          </td>
+          <td>
+            <table class="table" border="1" style="border-collapse: collapse">
+              <tr>
+                <td class="tableWidth" rowspan="4">設備投資<br>（億円）</td>
+                <td class="tableWidth">専用</td>
+                <td id="toUnique" class="tableWidth">〇〇億円</td>
+              </tr>
+              <tr>
+                <td>汎用</td>
+                <td id="toCommon">〇〇億円</td>
+              </tr>
+              <tr>
+                <td>工場</td>
+                <td id="toPlant">〇〇億円</td>
+              </tr>
+              <tr>
+                <td>ユニット</td>
+                <td id="toUnit">〇〇億円</td>
+              </tr>
+            </table>
+          </td>
+          <td>
+            <table class="table" border="1" style="border-collapse: collapse">
+              <tr>
+                <td class="tableWidth" rowspan="3">開発費<br>（億円）</td>
+                <td class="tableWidth">試作費</td>
+                <td id="toProtoCost" class="tableWidth">〇〇億円</td>
+              </tr>
+              <tr>
+                <td>労務費</td>
+                <td id="toLaborCost">〇〇億円</td>
+              </tr>
+              <tr>
+                <td>委託費</td>
+                <td id="toOutCost">〇〇億円</td>
+              </tr>
+              <tr>
+                <td colspan="2">試作車（台）</td>
+                <td id="toProtoCarNums">〇〇台</td>
+              </tr>
+            </table>
+          </td>
+        <tr>
+          <td>
+            <h3>(3)原価・採算状況</h3>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table class="table" border="1" style="border-collapse: collapse">
+              <tr>
+                <td class="basicModel" rowspan="5">基本車型）</td>
+                <td></td>
+                <th>現号比（千円/台）</th>
+              </tr>
+              <tr>
+                <td class="tableWidth">製造原価</td>
+                <td id="toProdCost">〇〇千円</td>
+              </tr>
+              <tr>
+                <td>総原価</td>
+                <td id="toTotalCost">〇〇千円</td>
+              </tr>
+              <tr>
+                <td>仕切価格</td>
+                <td id="toPartitionCost">〇〇千円</td>
+              </tr>
+              <tr>
+                <td>合算利益</td>
+                <td id="toProfit">〇〇千円</td>
+              </tr>
+              <tr>
+                <td>シリーズ</td>
+                <td>合算利益</td>
+                <td id="toSeriesProfit">〇〇千円</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div><br>
+  <div id="saisanPage">
+    <p id="title">
+      <img id="tcLogo" src="C:\Users\1469741\Desktop\dig-foundations\foundations\卒業制作\TCロゴ.jpg" alt="TCロゴ">
+      原価企画＜シリーズ採算＞
+    </p>
+    <img id="saisanGraph" src="C:\Users\1469741\Desktop\dig-foundations\foundations\卒業制作\採算グラフサンプル画像.jpg">
+  </div>
+</body>
+<script type="text/javascript" src="script.js"></script>
+</html>
