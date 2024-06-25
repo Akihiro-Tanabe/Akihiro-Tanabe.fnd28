@@ -1,0 +1,76 @@
+h1 {
+  text-align: center;
+}
+
+#subtitle {
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+}
+
+#inputTable {
+  margin: auto;
+}
+
+#button {
+  text-align: center;
+}
+
+#osahouPage {
+  font-family: sans-serif;
+  margin: auto;
+  border: 1px solid #333333;
+  padding: 0px;
+  width: 960px;
+  height: 600px;
+}
+
+#saisanPage {
+  font-family: sans-serif;
+  margin: auto;
+  border: 1px solid #333333;
+  padding: 0px;
+  width: 960px;
+  height: 600px;
+}
+
+#title {
+  font-weight: bold;
+  background-color: chartreuse;
+  font-size: 35px;
+  margin-top: 0px;
+}
+
+#tcLogo {
+  margin-left: 10px;
+  margin-inline-end: 10px;
+  margin-top: 10px;
+}
+
+#mainTable {
+  width: 960px;
+  padding-left: 30px;
+  margin-bottom: 30px;
+}
+
+.mainTableWidth {
+  width: 300px;
+}
+
+.tableWidth {
+  width: 90px;
+}
+
+.basicModel {
+  width: 200px;
+}
+
+.table {
+  text-align: center;
+}
+
+#saisanGraph {
+  width: 900px;
+}
