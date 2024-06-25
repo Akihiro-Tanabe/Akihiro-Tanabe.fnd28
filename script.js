@@ -1,0 +1,65 @@
+'use strict'
+// 1行目に記載している 'use strict' は削除しないでください
+
+function createTable() {
+  const num1 = document.getElementById("costPeriod").value;
+  document.getElementById("toCostPeriod").innerText = "原価時期　　：";
+  document.getElementById("toCostPeriod").innerText += `${num1.slice(0, 4)}年${num1.slice(6)}月`;
+  const num2 = document.getElementById("lineOff").value;
+  document.getElementById("toLineOff").innerText = "ラインオフ　：";
+  document.getElementById("toLineOff").innerText += `${num2.slice(0, 4)}年${num2.slice(6)}月`;
+  const num3 = document.getElementById("modelLife").value;
+  document.getElementById("toModelLife").innerText = "モデルライフ：";
+  document.getElementById("toModelLife").innerText += `${num3}ヶ月`;
+  const num4 = document.getElementById("planVolume").value;
+  document.getElementById("toPlanVolume").innerText = "企画台数　　：";
+  document.getElementById("toPlanVolume").innerText += `${num4}台/月`;
+  const num5 = document.getElementById("exchangeRate").value;
+  document.getElementById("toExchangeRate").innerText = "原企レート　：";
+  document.getElementById("toExchangeRate").innerText += `${num5}円/EUR`;
+  const num6 = document.getElementById("productionPlant").value;
+  document.getElementById("toProductionPlant").innerText = "生産場所　　：";
+  document.getElementById("toProductionPlant").innerText += num6;
+  const num8 = document.getElementById("unique").value;
+  document.getElementById("toUnique").textContent = " ";
+  document.getElementById("toUnique").textContent += num8;
+  const num9 = document.getElementById("common").value;
+  document.getElementById("toCommon").textContent = " ";
+  document.getElementById("toCommon").textContent += num9;
+  const num10 = document.getElementById("plant").value;
+  document.getElementById("toPlant").innerHTML = " ";
+  document.getElementById("toPlant").innerHTML += num10;
+  const num11 = document.getElementById("unit").value;
+  document.getElementById("toUnit").innerHTML = " ";
+  document.getElementById("toUnit").innerHTML += num11;
+  const num12 = document.getElementById("unit").value;
+  document.getElementById("toUnit").innerHTML = " ";
+  document.getElementById("toUnit").innerHTML += num12;
+  const num13 = document.getElementById("protoCost").value;
+  document.getElementById("toProtoCost").innerText = " ";
+  document.getElementById("toProtoCost").innerText += num13;
+  const num14 = document.getElementById("laborCost").value;
+  document.getElementById("toLaborCost").innerText = " ";
+  document.getElementById("toLaborCost").innerText += num14;
+  const num15 = document.getElementById("outCost").value;
+  document.getElementById("toOutCost").innerText = " ";
+  document.getElementById("toOutCost").innerText += num15;
+  const num16 = document.getElementById("protoCarNums").value;
+  document.getElementById("toProtoCarNums").innerText = " ";
+  document.getElementById("toProtoCarNums").innerText += num16;
+  const num17 = document.getElementById("prodCost").value;
+  document.getElementById("toProdCost").innerText = " ";
+  document.getElementById("toProdCost").innerText += num17;
+  const num18 = document.getElementById("totalCost").value;
+  document.getElementById("toTotalCost").innerText = " ";
+  document.getElementById("toTotalCost").innerText += num18;
+  const num19 = document.getElementById("partitionCost").value;
+  document.getElementById("toPartitionCost").innerText = " ";
+  document.getElementById("toPartitionCost").innerText += num19;
+  const num20 = document.getElementById("profit").value;
+  document.getElementById("toProfit").innerText = " ";
+  document.getElementById("toProfit").innerText += num20;
+  const num21 = document.getElementById("seriesProfit").value;
+  document.getElementById("toSeriesProfit").innerText = " ";
+  document.getElementById("toSeriesProfit").innerText += num21;
+}
